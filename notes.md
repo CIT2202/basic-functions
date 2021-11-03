@@ -279,7 +279,7 @@ function searchCountriesByContinent($searchTerm)
     }
     return $matches;
 }
-$matchingCountries = searchBandsByGenre("Europe");
+$matchingCountries = searchCountriesByContinent("Europe");
 
 foreach($matchingCountries as $country){
     echo "<p>{$countries["name"]}</p>";
