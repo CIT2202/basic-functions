@@ -7,7 +7,7 @@ function display_details(){
     echo "<ul>";
     echo "<li>Jane Jones</li>";
     echo "<li>19</li>";
-    echo "<li>Female</li>";
+    echo "<li>IT</li>";
     echo "</ul>";
 }
 
@@ -110,7 +110,7 @@ function display_details($name, $age, $course){
     echo "<li>{$course}</li>";
     echo "</ul>";
 }
-display_details("Sarah Smith", 21, "Computing in Business");
+display_details("Sarah Smith", 21, "Computing");
 
 ```
 Outputs:
@@ -118,7 +118,7 @@ Outputs:
 <ul>
 <li>Sarah Smith</li>
 <li>21</li>
-<li>Computing in Business</li>
+<li>Computing</li>
 </ul>
 ```
 
@@ -134,8 +134,8 @@ function display_details($name, $age, $course="IT"){
     echo "<li>{$course}</li>";
     echo "</ul>";
 }
-display_details("Bill Brown",21,"Web Design");
-display_details("Sarah Smith",27);
+display_details("Bill Brown", 21, "Web Design");
+display_details("Sarah Smith", 27);
 ```
 In the second function call, a third argument isn't specified so it defaults to *IT*.
 
@@ -158,7 +158,7 @@ In recent versions of PHP it is possible to specify the data type of parameters.
 
 ```php
 function hasPassed(int $mark){
-    if($mark>=40){
+    if($mark >= 40){
         echo "Passed";
     }else{
         echo "Failed";
@@ -182,7 +182,7 @@ function printArrayAsList(array $arr)
     }
     echo "</ul>";
 }
-printArrayAsList( ["Sarah","Sadia","Ania","Bill"] );
+printArrayAsList( ["Sarah", "Sadia", "Ania", "Bill"] );
 ```
 Outputs:
 ```html
@@ -213,7 +213,7 @@ The return statement sends a value back to the point in the script the function 
 ```php
 function old_enough($age)
 {
-        if($age>=17){
+        if($age >= 17){
             return true;
         }else{
             return false;
@@ -243,7 +243,7 @@ var_dump(isImage("anotherfile.php")); //false
 var_dump(isImage("anyfile.jpg")); //true
 
 ```
-Returning values is often a better idea than running echo statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a *return* statement.
+Returning values is often a better idea than running `echo` statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a *return* statement.
 
 ```php
 function hasPassed(int $mark){
@@ -265,16 +265,16 @@ We can return any type of data we want. This example returns an array.
 ```php
 function searchCountriesByContinent($searchTerm)
 {
-    $countries=[
+    $countries = [
       ["name"=>"Germany", "capital"=>"Berlin", "continent"=>"Europe"],
       ["name"=>"France", "capital"=>"Paris", "continent"=>"Europe"],
       ["name"=>"Japan", "capital"=>"Tokyo", "continent"=>"Asia"],
       ["name"=>"Italy", "capital"=>"Rome", "continent"=>"Europe"]
     ];
-    $matches=[];
+    $matches = [];
     foreach($countries as $country){
-        if($country["continent"]===$searchTerm){
-            $matches[]=$country;
+        if($country["continent"] === $searchTerm){
+            $matches[] = $country;
         }
     }
     return $matches;
@@ -291,7 +291,7 @@ foreach($matchingCountries as $country){
 Variables declared inside a function are only available to that function
 ```php
 function getName(){
-    $name="Fred";
+    $name = "Fred";
     echo $name;
 }
 
