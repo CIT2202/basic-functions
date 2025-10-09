@@ -3,7 +3,7 @@
 A function is simply group of statements that we give a name to. Here's an example:
 
 ```php
-function display_details(){
+function display_details():void{
     echo "<ul>";
     echo "<li>Jane Jones</li>";
     echo "<li>19</li>";
@@ -20,7 +20,7 @@ The function name should always describe what the function does e.g. this functi
 To run the code in a function we write the name of the function followed by  parentheses(curved brackets).
 
 ```php
-function display_details(){
+function display_details():void{
     echo "<ul>";
     echo "<li>Jane Jones</li>";
     echo "<li>19</li>";
@@ -42,7 +42,7 @@ This would output
 ## Arguments and parameters
 We can pass data to a function, we do this using an argument.
 ```php
-function display_details($name){
+function display_details(string $name):void{
     echo "<ul>";
     echo "<li>$name</li>";
     echo "<li>19</li>";
@@ -64,7 +64,7 @@ When the function is called, the text 'Sarah Smith' (the argument) is assigned t
 Arguments allow us to customise a function. The function can produce a different output each time we call it.
 
 ```php
-function display_details($name){
+function display_details(string $name):void{
     echo "<ul>";
     echo "<li>{$name}</li>";
     echo "<li>19</li>";
@@ -103,7 +103,7 @@ Outputs:
 We can use several arguments. We separate the arguments and parameters with commas.
 
 ```php
-function display_details($name, $age, $course){
+function display_details(string $name, string $age, string $course):void{
     echo "<ul>";
     echo "<li>{$name}</li>";
     echo "<li>{$age}</li>";
@@ -127,7 +127,7 @@ Outputs:
 We can make arguments optional by providing a default value for the parameter. In this example *$course* is given a default value of "IT".
 
 ```php
-function display_details($name, $age, $course="IT"){
+function display_details(string $name, string $age, string $course="IT"):void {
     echo "<ul>";
     echo "<li>{$name}</li>";
     echo "<li>{$age}</li>";
@@ -172,7 +172,7 @@ hasPassed(45);
 ## Arrays as arguments
 We can pass any type of variable as an argument. This example uses an array.
 ```php
-function printArrayAsList(array $arr)
+function printArrayAsList(array $arr):void
 {
     echo "<ul>";
     foreach($arr as $item){
@@ -198,7 +198,7 @@ Outputs:
 As well accepting 'input' via parameters functions can also produce 'output'.
 They can send data back using a *return* statement.
 ```php
-function doubleIt(int $num)
+function doubleIt(int $num):int
 {
         $double=$num*2;
         return $double;
@@ -211,7 +211,7 @@ echo "{$num} doubled is {$numDoubled}"; //4 doubled is 8
 The return statement sends a value back to the point in the script the function was called from. In this next example it is used in an *if* statement.
 
 ```php
-function old_enough($age)
+function old_enough($age):boolean
 {
         if($age >= 17){
             return true;
@@ -228,7 +228,7 @@ if(old_enough($age)){
 Here's another example that tells us if a file is an image.
 
 ```php
-function isImage($filename)
+function isImage($filename):boolean
 {
     $fileExt = substr($filename, strrpos($filename, '.') + 1); //gets the filename extension from the string e.g. png
     if($fileExt==="png" || $fileExt==="jpg" || $fileExt==="jpeg"){
@@ -246,7 +246,7 @@ var_dump(isImage("anyfile.jpg")); //true
 Returning values is often a better idea than running `echo` statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a *return* statement.
 
 ```php
-function hasPassed(int $mark){
+function hasPassed(int $mark):boolean{
     if($mark>=40){
         return true;
     }else{
@@ -263,7 +263,7 @@ if(hasPassed(45)){
 ## Returning arrays
 We can return any type of data we want. This example returns an array.
 ```php
-function searchCountriesByContinent($searchTerm)
+function searchCountriesByContinent($searchTerm):array
 {
     $countries = [
       ["name"=>"Germany", "capital"=>"Berlin", "continent"=>"Europe"],
@@ -290,7 +290,7 @@ foreach($matchingCountries as $country){
 ## Variable scope
 Variables declared inside a function are only available to that function
 ```php
-function getName(){
+function getName():void{
     $name = "Fred";
     echo $name;
 }
@@ -302,7 +302,7 @@ echo $name; //causes an error : undefined variable
 * We need to declare the variable as *global* for the function to recognise it
 ```php
 $name="Mike";
-function tellMeStuff(){
+function tellMeStuff():void{
     global $name; //need to declare as global to access the existing $name variable
     echo $name; //outputs Mike
 }
