@@ -305,7 +305,7 @@ function searchCountriesByContinent(string $searchTerm):array
 $matchingCountries = searchCountriesByContinent("Europe");
 
 foreach($matchingCountries as $country){
-    echo "<p>{$countries["name"]}</p>";
+    echo "<p>{$country["name"]}</p>";
 }
 
 ```
