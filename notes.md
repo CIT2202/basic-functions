@@ -42,7 +42,7 @@ This would output
 
 ## Arguments and parameters
 
-We can pass data to a function, we do this using an argument.
+We can pass data to a function, we do this using an argument. 
 
 ```php
 function display_details(string $name):void{
@@ -111,7 +111,7 @@ Outputs:
 We can use several arguments. We separate the arguments and parameters with commas.
 
 ```php
-function display_details(string $name, string $age, string $course):void{
+function display_details(string $name, int $age, string $course):void{
     echo "<ul>";
     echo "<li>{$name}</li>";
     echo "<li>{$age}</li>";
@@ -137,14 +137,14 @@ Outputs:
 We can make arguments optional by providing a default value for the parameter. In this example _$course_ is given a default value of "IT".
 
 ```php
-function display_details(string $name, string $age, string $course="IT"):void {
+function display_details(string $name, int $age, string $course="IT"):void {
     echo "<ul>";
     echo "<li>{$name}</li>";
     echo "<li>{$age}</li>";
     echo "<li>{$course}</li>";
     echo "</ul>";
 }
-display_details("Bill Brown", 21, "Web Design");
+display_details("Bill Brown", 21, "Computing");
 display_details("Sarah Smith", 27);
 ```
 
@@ -154,7 +154,7 @@ In the second function call, a third argument isn't specified so it defaults to 
 <ul>
   <li>Bill Brown</li>
   <li>21</li>
-  <li>Web Design</li>
+  <li>Computing</li>
 </ul>
 
 <ul>
@@ -169,7 +169,7 @@ In the second function call, a third argument isn't specified so it defaults to 
 In recent versions of PHP it is possible to specify the data type of parameters. Here's an example:
 
 ```php
-function hasPassed(int $mark){
+function hasPassed(int $mark):void{
     if($mark >= 40){
         echo "Passed";
     }else{
@@ -178,12 +178,10 @@ function hasPassed(int $mark){
 }
 hasPassed(45);
 ```
-
 - The keyword _int_ before the parameter _$mark_ specifies mark must be an integer. If the argument is a different data type e.g. a _string_ PHP will throw an error. You can look up the valid types ( including string, array, bool, int) at http://php.net/manual/en/functions.arguments.php.
 - It is considered good practice to use type declarations as it makes it clear in your code what type of data to pass to a function.
 
 ## Arrays as arguments
-
 We can pass any type of variable as an argument. This example uses an array.
 
 ```php
@@ -213,7 +211,7 @@ Outputs:
 
 ## Returning values
 
-As well accepting 'input' via parameters functions can also produce 'output'. They can send data back using a _return_ statement. The return statement sends a value back to the point in the script the function was called from. In this example, a value of 8 is returned and assigned to the variable `$numDoubled`.
+As well accepting 'input' via parameters, functions can also produce 'output'. They can send data back using a _return_ statement. The return statement sends a value back to the point in the script the function was called from. In this example, a value of 8 is returned and assigned to the variable `$numDoubled`.
 
 ```php
 function doubleIt(int $num):int
@@ -226,13 +224,13 @@ $numDoubled = doubleIt($num);
 echo "{$num} doubled is {$numDoubled}"; //4 doubled is 8
 ```
 
-- The function declaration (the first line of the function) can specify the type of data that is returned. In this case an integer is returned to we specify `:int`.
+- The function declaration (the first line of the function) can specify the type of data that is returned. In this case an integer is returned so we specify `:int`.
 - If a function doesn't return a value, we specify `:void`. See the previous examples.
 
-In this next example it is used in an _if_ statement.
+In this next example the return is used in an _if_ statement.
 
 ```php
-function old_enough($age):boolean
+function old_enough(int $age):boolean
 {
         if($age >= 17){
             return true;
@@ -249,7 +247,7 @@ if(old_enough($age)){
 Here's another example that tells us if a file is an image.
 
 ```php
-function isImage($filename):boolean
+function isImage(string $filename):boolean
 {
     $fileExt = substr($filename, strrpos($filename, '.') + 1); //gets the filename extension from the string e.g. png
     if($fileExt==="png" || $fileExt==="jpg" || $fileExt==="jpeg"){
@@ -287,7 +285,7 @@ if(hasPassed(45)){
 We can return any type of data we want. This example returns an array.
 
 ```php
-function searchCountriesByContinent($searchTerm):array
+function searchCountriesByContinent(string $searchTerm):array
 {
     $countries = [
       ["name"=>"Germany", "capital"=>"Berlin", "continent"=>"Europe"],
@@ -325,7 +323,7 @@ getName(); //outputs Fred
 echo $name; //causes an error : undefined variable
 ```
 
-- By default variables declared outside a function aren’t available to the function
+- By default variables declared outside a function aren't available to the function
 - We need to declare the variable as _global_ for the function to recognise it
 
 ```php
@@ -336,6 +334,5 @@ function tellMeStuff():void{
 }
 tellMeStuff();
 ```
-
 - Global variables are often considered bad programming practice as they tie the function to only being used in the presence of the global variables
 - Ideally, functions should work independently. They can then be used in any application without changing the code (the principle of 'Loose coupling')
