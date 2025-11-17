@@ -230,7 +230,7 @@ echo "{$num} doubled is {$numDoubled}"; //4 doubled is 8
 In this next example the return is used in an _if_ statement.
 
 ```php
-function old_enough(int $age):boolean
+function old_enough(int $age):bool
 {
         if($age >= 17){
             return true;
@@ -247,7 +247,7 @@ if(old_enough($age)){
 Here's another example that tells us if a file is an image.
 
 ```php
-function isImage(string $filename):boolean
+function isImage(string $filename):bool
 {
     $fileExt = substr($filename, strrpos($filename, '.') + 1); //gets the filename extension from the string e.g. png
     if($fileExt==="png" || $fileExt==="jpg" || $fileExt==="jpeg"){
@@ -266,7 +266,8 @@ var_dump(isImage("anyfile.jpg")); //true
 Returning values is often a better idea than running `echo` statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a _return_ statement.
 
 ```php
-function hasPassed(int $mark):boolean{
+function hasPassed(int $mark):bool
+{
     if($mark>=40){
         return true;
     }else{
