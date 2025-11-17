@@ -13,11 +13,11 @@ function display_details():void{
 
 ```
 
-The function name should always describe what the function does e.g. this function, *display_details*, prints someone’s details.
+The function name should always describe what the function does e.g. this function, _display_details_, prints someone’s details.
 
 ## Calling a function
 
-To run the code in a function we write the name of the function followed by  parentheses(curved brackets).
+To run the code in a function we write the name of the function followed by parentheses(curved brackets).
 
 ```php
 function display_details():void{
@@ -29,18 +29,21 @@ function display_details():void{
 }
 display_details(); //this line of code calls the function
 ```
+
 This would output
 
 ```html
 <ul>
-<li>Jane Jones</li>
-<li>19</li>
-<li>IT</li>
+  <li>Jane Jones</li>
+  <li>19</li>
+  <li>IT</li>
 </ul>
 ```
 
 ## Arguments and parameters
+
 We can pass data to a function, we do this using an argument.
+
 ```php
 function display_details(string $name):void{
     echo "<ul>";
@@ -52,15 +55,18 @@ function display_details(string $name):void{
 
 display_details("Sarah Smith");
 ```
+
 Outputs:
+
 ```html
 <ul>
-<li>Sarah Smith</li>
-<li>19</li>
-<li>IT</li>
+  <li>Sarah Smith</li>
+  <li>19</li>
+  <li>IT</li>
 </ul>
 ```
-When the function is called, the text 'Sarah Smith' (the argument) is assigned to the variable *$name* (the parameter).
+
+When the function is called, the text 'Sarah Smith' (the argument) is assigned to the variable _$name_ (the parameter).
 Arguments allow us to customise a function. The function can produce a different output each time we call it.
 
 ```php
@@ -77,29 +83,31 @@ display_details("Sadiah Iqbal");
 display_details("Ania Kowalski");
 
 ```
+
 Outputs:
+
 ```html
 <ul>
-<li>Sarah Smith</li>
-<li>19</li>
-<li>IT</li>
+  <li>Sarah Smith</li>
+  <li>19</li>
+  <li>IT</li>
 </ul>
 
 <ul>
-<li>Sadiah Iqbal</li>
-<li>19</li>
-<li>IT</li>
+  <li>Sadiah Iqbal</li>
+  <li>19</li>
+  <li>IT</li>
 </ul>
 
 <ul>
-<li>Ania Kowalski</li>
-<li>19</li>
-<li>IT</li>
+  <li>Ania Kowalski</li>
+  <li>19</li>
+  <li>IT</li>
 </ul>
-
 ```
 
 ### Multiple arguments
+
 We can use several arguments. We separate the arguments and parameters with commas.
 
 ```php
@@ -113,18 +121,20 @@ function display_details(string $name, string $age, string $course):void{
 display_details("Sarah Smith", 21, "Computing");
 
 ```
+
 Outputs:
+
 ```html
 <ul>
-<li>Sarah Smith</li>
-<li>21</li>
-<li>Computing</li>
+  <li>Sarah Smith</li>
+  <li>21</li>
+  <li>Computing</li>
 </ul>
 ```
 
 ### Optional arguments
 
-We can make arguments optional by providing a default value for the parameter. In this example *$course* is given a default value of "IT".
+We can make arguments optional by providing a default value for the parameter. In this example _$course_ is given a default value of "IT".
 
 ```php
 function display_details(string $name, string $age, string $course="IT"):void {
@@ -137,23 +147,25 @@ function display_details(string $name, string $age, string $course="IT"):void {
 display_details("Bill Brown", 21, "Web Design");
 display_details("Sarah Smith", 27);
 ```
-In the second function call, a third argument isn't specified so it defaults to *IT*.
+
+In the second function call, a third argument isn't specified so it defaults to _IT_.
 
 ```html
 <ul>
-<li>Bill Brown</li>
-<li>21</li>
-<li>Web Design</li>
+  <li>Bill Brown</li>
+  <li>21</li>
+  <li>Web Design</li>
 </ul>
 
 <ul>
-<li>Sarah Smith</li>
-<li>27</li>
-<li>IT</li>
+  <li>Sarah Smith</li>
+  <li>27</li>
+  <li>IT</li>
 </ul>
 ```
 
 ## Type declarations
+
 In recent versions of PHP it is possible to specify the data type of parameters. Here's an example:
 
 ```php
@@ -166,11 +178,14 @@ function hasPassed(int $mark){
 }
 hasPassed(45);
 ```
-* The keyword *int* before the parameter *$mark* specifies mark must be an integer. If the argument is a different data type e.g. a *string* PHP will throw an error. You can look up the valid types ( including string, array, bool, int) at http://php.net/manual/en/functions.arguments.php.
-* It is considered good practice to use type declarations as it makes it clear in your code what type of data to pass to a function.
+
+- The keyword _int_ before the parameter _$mark_ specifies mark must be an integer. If the argument is a different data type e.g. a _string_ PHP will throw an error. You can look up the valid types ( including string, array, bool, int) at http://php.net/manual/en/functions.arguments.php.
+- It is considered good practice to use type declarations as it makes it clear in your code what type of data to pass to a function.
 
 ## Arrays as arguments
+
 We can pass any type of variable as an argument. This example uses an array.
+
 ```php
 function printArrayAsList(array $arr):void
 {
@@ -184,23 +199,26 @@ function printArrayAsList(array $arr):void
 }
 printArrayAsList( ["Sarah", "Sadia", "Ania", "Bill"] );
 ```
+
 Outputs:
+
 ```html
 <ul>
-<li>Sarah</li>
-<li>Sadia</li>
-<li>Ania</li>
-<li>Bill</li>
+  <li>Sarah</li>
+  <li>Sadia</li>
+  <li>Ania</li>
+  <li>Bill</li>
 </ul>
 ```
 
 ## Returning values
-As well accepting 'input' via parameters functions can also produce 'output'.
-They can send data back using a *return* statement.
+
+As well accepting 'input' via parameters functions can also produce 'output'. They can send data back using a _return_ statement. The return statement sends a value back to the point in the script the function was called from. In this example, a value of 8 is returned and assigned to the variable `$numDoubled`.
+
 ```php
 function doubleIt(int $num):int
 {
-        $double=$num*2;
+    $double=$num*2;
         return $double;
 }
 $num = 4;
@@ -208,7 +226,10 @@ $numDoubled = doubleIt($num);
 echo "{$num} doubled is {$numDoubled}"; //4 doubled is 8
 ```
 
-The return statement sends a value back to the point in the script the function was called from. In this next example it is used in an *if* statement.
+- The function declaration (the first line of the function) can specify the type of data that is returned. In this case an integer is returned to we specify `:int`.
+- If a function doesn't return a value, we specify `:void`. See the previous examples.
+
+In this next example it is used in an _if_ statement.
 
 ```php
 function old_enough($age):boolean
@@ -243,7 +264,8 @@ var_dump(isImage("anotherfile.php")); //false
 var_dump(isImage("anyfile.jpg")); //true
 
 ```
-Returning values is often a better idea than running `echo` statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a *return* statement.
+
+Returning values is often a better idea than running `echo` statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a _return_ statement.
 
 ```php
 function hasPassed(int $mark):boolean{
@@ -261,7 +283,9 @@ if(hasPassed(45)){
 ```
 
 ## Returning arrays
+
 We can return any type of data we want. This example returns an array.
+
 ```php
 function searchCountriesByContinent($searchTerm):array
 {
@@ -288,7 +312,9 @@ foreach($matchingCountries as $country){
 ```
 
 ## Variable scope
+
 Variables declared inside a function are only available to that function
+
 ```php
 function getName():void{
     $name = "Fred";
@@ -298,8 +324,10 @@ function getName():void{
 getName(); //outputs Fred
 echo $name; //causes an error : undefined variable
 ```
-* By default variables declared outside a function aren’t available to the function
-* We need to declare the variable as *global* for the function to recognise it
+
+- By default variables declared outside a function aren’t available to the function
+- We need to declare the variable as _global_ for the function to recognise it
+
 ```php
 $name="Mike";
 function tellMeStuff():void{
@@ -308,5 +336,6 @@ function tellMeStuff():void{
 }
 tellMeStuff();
 ```
-* Global variables are often considered bad programming practice as they tie the function to only being used in the presence of the global variables
-* Ideally, functions should work independently. They can then be used in any application without changing the code (the principle of 'Loose coupling')
+
+- Global variables are often considered bad programming practice as they tie the function to only being used in the presence of the global variables
+- Ideally, functions should work independently. They can then be used in any application without changing the code (the principle of 'Loose coupling')
