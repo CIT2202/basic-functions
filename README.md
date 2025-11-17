@@ -21,7 +21,5 @@ Now move onto [Completing the practical work](#practical).
 
 ## Completing the practical work <a name="practical"></a>
 
-## Completing the practical work
-
 - Open index.php in a text editor, and add your own code to answer the questions.
 - Use the [notes](https://github.com/CIT2202/basic-functions/blob/master/notes.md) to help you answer the questions.
