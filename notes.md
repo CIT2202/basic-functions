@@ -74,7 +74,7 @@ function display_details(string $name):void{
     echo "<ul>";
     echo "<li>{$name}</li>";
     echo "<li>19</li>";
-    echo "<li>Female</li>";
+    echo "<li>IT</li>";
     echo "</ul>";
 }
 
